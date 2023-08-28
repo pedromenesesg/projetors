@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ESSA PARTE EH REFERENTE AO MODO NORMAL */
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(
+    0,
+    0,
+    0,
+    0.02
+  ); /* COR PADRAO DE QUANDO PASSA O MOUSE NOS BOTOES */
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  /*ESSA PARTE EH REFERENTE AO MODO LIGHT*/
+  --text-color: black;
+  --bg-url: url(./assets/fundoclaro.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(
+    0,
+    0,
+    0,
+    0.05
+  ); /* COR NO MODO LIGHT, DIFERENTE DA PADRAO*/
+  --highlight-color: rgba(0, 0, 0, 0.2);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /*
+  O CÓDIGO ABAIXO REFERE-SE A TODOS ESSES CÓDIGOS A SEGUIR
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+
+  /*background: color image repeat position/size*/
+
+  background: var(--bg-url) no-repeat top center/cover;
+}
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+#container {
+  width: 360px; /* PARA REGULAR LARGURA */
+  /* border: 1px solid red;  PARA REGULAR A BORDA */
+  margin: auto; /* PARA REGULAR A MARGEM */
+  margin-top: 56px;
+  padding: 24px;
+  /*
+  margin-right: auto; MEXER PARA DIREITA
+  margin-left: auto; MEXER PARA ESQUERDA
+  o comando margin: auto ja faz isso sozinho.
+  */
+}
+
+/*profile*/
+
+#profile {
+  text-align: center; /*ESSE COMANDO SERVE PARA CENTRALIZAR O TEXTO*/
+  padding: 24px;
+}
+
+#profile img {
+  display: block; /*TRANSFORMAR O ELEMENTO EM BLOCK, ESSE PROFILE IMG É UM IN-LINE*/
+  margin: auto; /*NOS ELEMENTOS IN-LINE, NÃO CONSEGUE SE UTILIZAR O MARGIN: AUTO */
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500; /*PESO DA FONTE*/
+  font-size: 16px; /*TAMANHO DA FONTE*/
+  line-height: 24px; /*ALTURA DA FONTE*/
+  margin-top: 8px;
+}
+
+#switch {
+  position: relative;
+  width: 64px;
+
+  margin: 0 auto; /*USAR QUANDO O DISPLAY FOR BLOCK*/
+  padding: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+
+  position: absolute;
+  z-index: 1;
+  right: 1;
+  top: 50%; /*M OVER PARA O TOPO */
+  transform: translateY(-50%); /*USADO PARA ARRUMAR O EIXO Y*/
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/*links*/
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 24px 0px;
+}
+
+ul li a {
+  display: flex;
+  justify-content: center; /*ele leva ao cento o conteúdo da caixa, entretando respeita a linha do display: flex*/
+  padding: 16px 24px;
+
+  align-items: center;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.3s;
+}
+
+ul li a:hover {
+  background: rgba(255, 255, 25, 0.05);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  padding: 24px;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  justify-content: center;
+
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+  padding: 16px;
+}
+
+footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 14px;
+}
